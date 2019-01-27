@@ -1,22 +1,73 @@
-<%= form_with(model: review, local: true) do |form| %>
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<div class="columns">
+  <div class="column is-8 is-centered">
 
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <%= simple_form_for @reviews, html: { multipart: true } do |f| %>
+      <%= f.error_notification %>
+
+        <div class="columns">
+
+      
+
+        <div class="field">
+          <div class="control">
+            <%= f.input :text, required: true, input_html: { class:"textarea" }, wrapper: false, label_html: { class:"label" } %>
+          </div>
+        </div>
+
+        <div class="columns">
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Satisfaction</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :satisfacton, collection: Review::Satisfaction, prompt: "Select how you liked it" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-tag"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+
+          <div class="field column is-4">
+            <div class="control">
+              <label class="label">Condition</label>
+              <div class="control has-icons-left">
+                <span class="select">
+                  <%= f.input_field :condition, collection: Instrument::CONDITION, prompt: "Select condition" %>
+                </span>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-paint-brush"></i>
+                </span>
+              </div>
+            </div>
+           </div>
+         </div>
+
+        <div class="field">
+          <div class="control">
+            <label class="label">Add images</label>
+              <div class="file">
+              <label class="file-label">
+                <%= f.input :image, as: :file, input_html: { class:"file-input instrument-image" }, label: false, wrapper: false %>
+                  <span class="file-cta">
+                    <span class="file-icon"><i class="fa fa-upload"></i></span>
+                    <span class="file-label">Choose a file…</span>
+                  </span>
+              </label>
+              </div>
+            </div>
+          </div>
+          <output id="list"></output>
+        <hr />
+
+        <div class="field is-grouped">
+          <div class="control">
+            <%= f.button :submit, class: 'button is-warning' %>
+            <%= link_to 'Cancel', instruments_path, class:'button is-light' %>
+          </div>
+        </div>
+
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :text %>
-    <%= form.text_field :text %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

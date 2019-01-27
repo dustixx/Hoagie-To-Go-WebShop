@@ -1,10 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
+    before_action :authenticate_user!, except: [:index, :show]
+    
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order("created_at desc")
   end
 
   # GET /reviews/1
@@ -14,6 +16,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
+   
+    #@review = current_user.review.build
     @review = Review.new
   end
 
@@ -24,7 +28,10 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
+    
+    @review = current_user.reviews.build(review_params)
+    #falls das oben nicht geht, das hier benutzten  
+    #@review = Review.new(review_params)
 
     respond_to do |format|
       if @review.save
@@ -69,6 +76,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:text)
+      params.require(:review).permit(:text,:image)
     end
 end

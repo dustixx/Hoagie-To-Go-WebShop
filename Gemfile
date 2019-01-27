@@ -42,6 +42,7 @@ gem 'gravatar_image_tag', '~> 1.2'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 
 
