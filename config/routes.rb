@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   get 'orders/index'
   get 'reviews/index'
   get 'home/index'
