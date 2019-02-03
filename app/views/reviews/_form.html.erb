@@ -20,7 +20,7 @@
               <label class="label">Satisfaction</label>
               <div class="control has-icons-left">
                 <span class="select">
-                  <%= f.input_field :satisfacton, collection: Review::SATISFACTION, prompt: "Select how you liked it" %>
+                  <%= f.input_field :satisfaction, collection: Review::SATISFACTION, prompt: "Select how you liked it" %>
                 </span>
                 <span class="icon is-small is-left">
                   <i class="fa fa-tag"></i>
@@ -55,7 +55,7 @@
         <div class="field is-grouped">
           <div class="control">
             <%= f.button :submit, class: 'button is-warning' %>
-            <%= link_to 'Cancel', instruments_path, class:'button is-light' %>
+            <%= link_to 'Cancel', reviews_path, class:'button is-light' %>
           </div>
         </div>
 
