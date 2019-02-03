@@ -13,9 +13,14 @@
 ActiveRecord::Schema.define(version: 2019_01_27_174059) do
 
   create_table "reviews", force: :cascade do |t|
+<<<<<<< HEAD
     t.string "text"
             t.string :satisfaction
 
+=======
+    t.text "text"
+    t.string "satisfaction"
+>>>>>>> 60fc9ca547f09af41e9acf3e2dc4a7fd4c3e99ab
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
