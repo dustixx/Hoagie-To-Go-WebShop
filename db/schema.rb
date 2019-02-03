@@ -13,14 +13,8 @@
 ActiveRecord::Schema.define(version: 2019_01_27_174059) do
 
   create_table "reviews", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "text"
-            t.string :satisfaction
-
-=======
-    t.text "text"
     t.string "satisfaction"
->>>>>>> 60fc9ca547f09af41e9acf3e2dc4a7fd4c3e99ab
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -35,6 +29,13 @@ ActiveRecord::Schema.define(version: 2019_01_27_174059) do
     t.datetime "remember_created_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "zutaten", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 5, scale: 2, default: "0.0"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

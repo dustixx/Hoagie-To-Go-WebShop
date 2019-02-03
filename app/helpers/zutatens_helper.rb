@@ -1,0 +1,2 @@
+module ZutatensHelper
+end

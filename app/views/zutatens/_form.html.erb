@@ -1,7 +1,7 @@
 <div class="columns">
   <div class="column is-8 is-centered">
 
-    <%= simple_form_for @review, html: { multipart: true } do |f| %>
+    <%= simple_form_for @zutaten, html: { multipart: true } do |f| %>
       <%= f.error_notification %>
 
         <div class="columns">
@@ -14,21 +14,6 @@
           </div>
         </div>
 
-        <div class="columns">
-          <div class="field column is-4">
-            <div class="control">
-              <label class="label">Satisfaction</label>
-              <div class="control has-icons-left">
-                <span class="select">
-                  <%= f.input_field :satisfaction, collection: Review::SATISFACTION, prompt: "Select how you liked it" %>
-                </span>
-                <span class="icon is-small is-left">
-                  <i class="fa fa-tag"></i>
-                </span>
-              </div>
-            </div>
-           </div>
-            
             
         
 

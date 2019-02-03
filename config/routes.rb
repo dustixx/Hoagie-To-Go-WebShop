@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
  
     
+  resources :zutatens
   devise_for :users
   resources :reviews
   get 'orders/index'
