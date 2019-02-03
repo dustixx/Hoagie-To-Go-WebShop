@@ -34,11 +34,12 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
-gem 'bulma-rails', '~> 0.6.1'
-# gem 'simple_form', '~> 3.5'
-gem 'devise', '~>4.4'
-gem 'gravatar_image_tag', '~> 1.2'
+gem 'mongoid'
+gem 'activemodel' 
+gem 'bulma-rails'
+ gem 'simple_form'
+gem 'devise'
+gem 'gravatar_image_tag'
 gem 'carrierwave'
 gem 'mini_magick'
 

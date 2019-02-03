@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
     devise :database_authenticatable, :registerable,
-            :recoverable, :rememberable, :trackable, :validatable
+            :recoverable, :rememberable, :validatable
     
     has_many :reviews
 end
